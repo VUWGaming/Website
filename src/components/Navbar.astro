@@ -1,0 +1,104 @@
+---
+const navLinks = [
+	{ label: 'Home', href: '#home' },
+	{ label: 'About', href: '#about' },
+	{ label: 'Events', href: '#events' },
+	{ label: 'Join', href: '#join' },
+];
+---
+
+<header
+	class="fixed top-0 z-50 w-full border-b border-white/10 bg-gray-950/80 backdrop-blur-md"
+	x-data="{ open: false }"
+>
+	<nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+		<!-- Logo -->
+		<a href="#home" class="flex items-center gap-2 text-xl font-bold tracking-tight">
+			<span class="text-2xl">🎮</span>
+			<span class="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
+				VUW Gaming
+			</span>
+		</a>
+
+		<!-- Desktop links -->
+		<ul class="hidden gap-8 md:flex">
+			{
+				navLinks.map(({ label, href }) => (
+					<li>
+						<a
+							href={href}
+							class="text-sm font-medium text-gray-300 transition-colors hover:text-white"
+						>
+							{label}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+
+		<!-- Desktop CTA -->
+		<a
+			href="#join"
+			class="hidden rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-violet-500 md:inline-flex"
+		>
+			Join the Club
+		</a>
+
+		<!-- Mobile burger -->
+		<button
+			class="rounded-md p-2 text-gray-400 hover:text-white md:hidden"
+			@click="open = !open"
+			aria-label="Toggle menu"
+		>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				class="h-6 w-6"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke="currentColor"
+			>
+				<path
+					x-show="!open"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M4 6h16M4 12h16M4 18h16"></path>
+				<path
+					x-show="open"
+					x-cloak
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M6 18L18 6M6 6l12 12"></path>
+			</svg>
+		</button>
+	</nav>
+
+	<!-- Mobile menu -->
+	<div x-show="open" x-cloak class="border-t border-white/10 bg-gray-950/95 md:hidden">
+		<ul class="flex flex-col gap-1 px-6 py-4">
+			{
+				navLinks.map(({ label, href }) => (
+					<li>
+						<a
+							href={href}
+							class="block rounded-md px-3 py-2 text-sm font-medium text-gray-300 transition-colors hover:bg-white/5 hover:text-white"
+							@click="open = false"
+						>
+							{label}
+						</a>
+					</li>
+				))
+			}
+			<li class="pt-2">
+				<a
+					href="#join"
+					class="block rounded-lg bg-violet-600 px-4 py-2 text-center text-sm font-semibold text-white hover:bg-violet-500"
+					@click="open = false"
+				>
+					Join the Club
+				</a>
+			</li>
+		</ul>
+	</div>
+</header>
