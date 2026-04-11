@@ -1,0 +1,81 @@
+---
+const events = [
+	{
+		date: 'Apr 19',
+		title: 'Weekly Smash Bros Night',
+		description: 'Open bracket tournament — any skill level welcome. Bring your controller!',
+		tag: 'Fighting',
+		tagColor: 'bg-red-500/20 text-red-300',
+		emoji: '🥊',
+	},
+	{
+		date: 'Apr 23',
+		title: 'Valorant 5v5 Scrimmage',
+		description: 'Internal 5v5 competitive match. Sign up in Discord to reserve your spot.',
+		tag: 'FPS',
+		tagColor: 'bg-blue-500/20 text-blue-300',
+		emoji: '🎯',
+	},
+	{
+		date: 'Apr 26',
+		title: 'Board Game & Tabletop RPG Night',
+		description: "Catan, D&D, and more. Bring your friends or come solo — we'll find you a table.",
+		tag: 'Tabletop',
+		tagColor: 'bg-green-500/20 text-green-300',
+		emoji: '🎲',
+	},
+	{
+		date: 'May 3',
+		title: 'Speedrunning Workshop',
+		description:
+			'Learn the basics of speedrunning and glitch hunting. Any-% tips and tricks from club veterans.',
+		tag: 'Workshop',
+		tagColor: 'bg-yellow-500/20 text-yellow-300',
+		emoji: '⏱️',
+	},
+	{
+		date: 'May 10',
+		title: 'End-of-Trimester LAN Party',
+		description:
+			'Three-hour LAN session in the Kelburn Campus Hub. BYO laptop or use club equipment.',
+		tag: 'LAN',
+		tagColor: 'bg-violet-500/20 text-violet-300',
+		emoji: '💻',
+	},
+	{
+		date: 'May 17',
+		title: 'Rocket League Tournament',
+		description: '2v2 round-robin tournament with prizes. Register your team by May 15.',
+		tag: 'Racing',
+		tagColor: 'bg-orange-500/20 text-orange-300',
+		emoji: '🚀',
+	},
+];
+---
+
+<section id="events" class="px-6 py-24">
+	<div class="mx-auto max-w-6xl">
+		<div class="mb-16 text-center">
+			<h2 class="mb-4 text-3xl font-bold sm:text-4xl">Upcoming Events</h2>
+			<p class="mx-auto max-w-2xl text-gray-400">
+				From weekly hangouts to semester-wide tournaments — there's always something on.
+			</p>
+		</div>
+
+		<ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+			{
+				events.map(({ date, title, description, tag, tagColor, emoji }) => (
+					<li class="flex flex-col rounded-2xl border border-white/5 bg-white/5 p-6 transition-colors hover:border-violet-500/30 hover:bg-white/[0.07]">
+						<div class="mb-4 flex items-start justify-between gap-2">
+							<span class={`rounded-full px-3 py-1 text-xs font-medium ${tagColor}`}>{tag}</span>
+							<time class="text-sm font-medium text-gray-500">{date}</time>
+						</div>
+						<div class="mb-2 text-3xl" aria-hidden="true">{emoji}</div>
+						<h3 class="mb-2 text-lg font-semibold">{title}</h3>
+						<p class="text-sm leading-relaxed text-gray-400">{description}</p>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>
