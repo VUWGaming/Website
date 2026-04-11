@@ -1,0 +1,64 @@
+---
+const features = [
+	{
+		icon: '🏆',
+		title: 'Competitive Esports',
+		description:
+			'Represent VUW in inter-university esports competitions across Valorant, League of Legends, Rocket League, and more.',
+	},
+	{
+		icon: '🤝',
+		title: 'Casual & Social',
+		description:
+			'Weekly hangouts, board game nights, and LAN parties for players who just want to have fun.',
+	},
+	{
+		icon: '📚',
+		title: 'Learn & Grow',
+		description:
+			'Workshops, coaching sessions, and mentorship from experienced players to help you improve.',
+	},
+	{
+		icon: '🌐',
+		title: 'Active Community',
+		description:
+			'Our Discord server is buzzing 24/7 — find teammates, share clips, and stay up to date on events.',
+	},
+	{
+		icon: '🎁',
+		title: 'Member Perks',
+		description:
+			'Members get early access to tournaments, exclusive club merch, and discounts from our gaming partners.',
+	},
+	{
+		icon: '📍',
+		title: 'On-Campus Space',
+		description:
+			'We have a dedicated gaming lounge on the Kelburn campus, open to members throughout the week.',
+	},
+];
+---
+
+<section id="about" class="px-6 py-24">
+	<div class="mx-auto max-w-6xl">
+		<div class="mb-16 text-center">
+			<h2 class="mb-4 text-3xl font-bold sm:text-4xl">About Us</h2>
+			<p class="mx-auto max-w-2xl text-gray-400">
+				We're a student-run club at Te Herenga Waka — Victoria University of Wellington, united by
+				a love of games.
+			</p>
+		</div>
+
+		<ul class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+			{
+				features.map(({ icon, title, description }) => (
+					<li class="rounded-2xl border border-white/5 bg-white/5 p-6 transition-colors hover:border-violet-500/30 hover:bg-white/[0.07]">
+						<div class="mb-3 text-3xl" aria-hidden="true">{icon}</div>
+						<h3 class="mb-2 text-lg font-semibold">{title}</h3>
+						<p class="text-sm leading-relaxed text-gray-400">{description}</p>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>
